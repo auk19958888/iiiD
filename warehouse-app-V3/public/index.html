@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>仓库管理程序</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="layout">
+  <div class="sidebar">
+    <div class="brand">仓库管理
+      <small id="modeLabel">检测模式中…</small>
+    </div>
+    <div class="nav-item active" data-page="outbound">客户订单（出库单）</div>
+    <div class="nav-item" data-page="inbound">入库单</div>
+    <div class="nav-item" data-page="warehouses">仓库</div>
+    <div class="nav-item" data-page="products">产品</div>
+    <div class="nav-item" data-page="inventory">库存</div>
+    <div class="demo-banner" id="demoBanner" style="display:none">
+      当前为演示模式：数据为假数据，创建操作只保存在内存里。配置 .env 里的 appKey/appSecret 后重启即可对接真实接口。
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="page-header">
+      <div>
+        <h1 id="pageTitle">仓库列表</h1>
+        <p id="pageSubtitle">已对接仓库信息</p>
+      </div>
+      <button class="btn" id="createBtn" style="display:none">+ 新建</button>
+    </div>
+    <div class="card">
+      <div id="tableContainer"></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal">
+    <h2 id="modalTitle">新建</h2>
+    <p class="hint" id="modalHint"></p>
+    <div id="modalFields"></div>
+    <div class="modal-actions">
+      <button class="btn secondary" id="modalCancel">取消</button>
+      <button class="btn" id="modalSubmit">提交</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
